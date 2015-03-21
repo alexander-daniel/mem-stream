@@ -1,9 +1,9 @@
-# memory-stream
+# mem-stream
 Creates a Readable stream of memory information.
 
 # example
 ```javascript
-var MemoryStream = require('memory-stream');
+var MemoryStream = require('mem-stream');
 
 var memStream = new MemoryStream({
     sep: '\n',
@@ -20,7 +20,7 @@ memStream.pipe(process.stdout);
 
 # methods
 ```javascript
-var MemoryStream = require('memory-stream');
+var MemoryStream = require('mem-stream');
 ```
 
 ## var memoryStream = new MemoryStream()
