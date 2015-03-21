@@ -28,7 +28,7 @@ describe constructor
 
 # install
 ```bash
-npm install memory-stream
+npm install mem-stream
 ```
 
 # license
