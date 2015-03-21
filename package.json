@@ -1,7 +1,7 @@
 {
-  "name": "memory-stream",
-  "version": "0.0.1",
-  "description": "",
+  "name": "mem-stream",
+  "version": "0.0.0",
+  "description": "Creates a Readable stream of memory information.",
   "main": "index.js",
   "dependencies": {
     "moment": "^2.9.0",
