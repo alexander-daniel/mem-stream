@@ -31,10 +31,5 @@ describe constructor
 npm install memory-stream
 ```
 
-# test
-```bash
-npm test
-```
-
 # license
 MIT
