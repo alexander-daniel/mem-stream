@@ -8,26 +8,36 @@ function MemoryStream (opt) {
     if (!opt) opt = {};
     if (!(this instanceof MemoryStream)) return new MemoryStream(opt);
 
-    Readable.call(this, opt);
     var self = this;
+    Readable.call(this, opt);
+
     self.sep = opt.sep || '\n';
+    self.interval = opt.interval || 1000;
+    self.dataType = opt.dataType;
+
     self._destroyed = false;
     self.iv = null;
-    self.interval = opt.interval || 1000;
 
     function getMemoryData () {
 
         var heapUsed = process.memoryUsage().heapUsed;
         var heapTotal = process.memoryUsage().heapTotal;
-        var heapPercent = heapUsed / heapTotal;
-        var freeMem = os.freemem() / 1e6;
+        var data;
 
-        var data = {
-            heapUsed: heapUsed,
-            heapTotal: heapTotal,
-            heapPercent: heapPercent,
-            freeMem: freeMem
-        };
+        switch (self.dataType) {
+            case 'heapUsed':
+                data  = heapUsed;
+                break;
+            case 'heapTotal':
+                data = heapTotal;
+                break;
+            case 'heapPercent':
+                data = heapUsed / heapTotal;
+                break;
+            case 'osFreeMem':
+                data = os.freemem() / 1e6;
+                break;
+        }
 
         if (!opt.objectMode) {
             data = JSON.stringify(data) + self.sep;
