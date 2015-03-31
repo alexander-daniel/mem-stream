@@ -32,7 +32,7 @@ function MemoryStream (opt) {
                 data = heapTotal;
                 break;
             case 'heapPercent':
-                data = heapUsed / heapTotal;
+                data = Math.floor(heapUsed / heapTotal * 100);
                 break;
             case 'osFreeMem':
                 data = os.freemem() / 1e6;
